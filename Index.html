@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Castiel &amp; Ben</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap');
+
+  :root{
+    --bg:#141026;
+    --panel:#1d1836;
+    --ink:#f2efff;
+    --ink-dim:#a79fd1;
+    --cas:#43e0c8;
+    --cas-dim:#1f4d47;
+    --ben:#ff5f9e;
+    --ben-dim:#4d1f36;
+    --line:rgba(242,239,255,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Nunito',sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fredoka',sans-serif;
+    margin:0;
+  }
+
+  /* ---- Header ---- */
+  header{
+    padding:4rem 1.5rem 3rem;
+    text-align:center;
+  }
+  header .display{
+    font-size:clamp(2.2rem,6vw,3.6rem);
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  header .display span:first-child{color:var(--cas);}
+  header .amp{color:var(--ink-dim); margin:0 .2em; font-weight:500;}
+  header .display span:last-child{color:var(--ben);}
+  header p{
+    max-width:34em;
+    margin:0.9rem auto 0;
+    color:var(--ink-dim);
+    font-size:1.05rem;
+  }
+
+  /* ---- Duel layout ---- */
+  main{
+    max-width:1000px;
+    margin:0 auto;
+    padding:0 1.5rem 4rem;
+  }
+  .duel{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:start;
+    gap:1.2rem;
+  }
+  @media (max-width:760px){
+    .duel{grid-template-columns:1fr; }
+    .vs{display:none;}
+  }
+  .vs{
+    align-self:center;
+    font-family:'Fredoka',sans-serif;
+    font-weight:700;
+    font-size:1.4rem;
+    color:var(--ink-dim);
+    padding-top:6rem;
+  }
+
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:2rem 1.7rem 2.2rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    height:5px;
+  }
+  .card.castiel::before{background:var(--cas);}
+  .card.ben::before{background:var(--ben);}
+
+  .avatar{
+    width:74px;height:74px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:2rem;
+    margin-bottom:1.1rem;
+  }
+  .card.castiel .avatar{background:var(--cas-dim); border:2px solid var(--cas);}
+  .card.ben .avatar{background:var(--ben-dim); border:2px solid var(--ben);}
+
+  .card h2{font-size:1.6rem; font-weight:600;}
+  .role{
+    color:var(--ink-dim);
+    font-size:0.95rem;
+    margin-top:0.2rem;
+  }
+  .card p.bio{
+    margin-top:1rem;
+    color:var(--ink-dim);
+    font-size:0.98rem;
+  }
+
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem;
+    margin-top:1.4rem;
+  }
+  .tag{
+    font-size:0.85rem;
+    font-weight:600;
+    padding:0.4rem 0.8rem;
+    border-radius:999px;
+    background:rgba(242,239,255,0.06);
+    color:var(--ink);
+  }
+  .card.castiel .tag{border:1px solid var(--cas-dim);}
+  .card.ben .tag{border:1px solid var(--ben-dim);}
+
+  .stats{margin-top:1.5rem;}
+  .stat{margin-bottom:0.7rem;}
+  .stat .label{
+    display:flex; justify-content:space-between;
+    font-size:0.85rem; color:var(--ink-dim); margin-bottom:0.3rem;
+  }
+  .bar{
+    height:8px; border-radius:999px;
+    background:rgba(242,239,255,0.08);
+    overflow:hidden;
+  }
+  .bar span{display:block; height:100%; border-radius:999px;}
+  .card.castiel .bar span{background:var(--cas);}
+  .card.ben .bar span{background:var(--ben);}
+
+  /* ---- Footer ---- */
+  footer{
+    text-align:center;
+    padding:2.5rem 1.5rem 3.5rem;
+    color:var(--ink-dim);
+    font-size:0.9rem;
+  }
+  footer strong{color:var(--ink);}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="display"><span>Castiel</span><span class="amp">&amp;</span><span>Ben</span></h1>
+  <p>Two 13-year-olds, one shared obsession with games and anime — plus a sports streak and a comedy streak to tell us apart.</p>
+</header>
+
+<main>
+  <div class="duel">
+
+    <div class="card castiel">
+      <div class="avatar">🎮</div>
+      <h2>Castiel</h2>
+      <div class="role">Age 13 · The Athlete Gamer</div>
+      <p class="bio">Splits his time between the controller and the field — always down for a match, whether it's on-screen or on-court.</p>
+      <div class="tags">
+        <span class="tag">🕹️ Video Games</span>
+        <span class="tag">📺 Anime</span>
+        <span class="tag">⚽ Sports</span>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="label"><span>Gaming</span><span>90%</span></div>
+          <div class="bar"><span style="width:90%"></span></div>
+        </div>
+        <div class="stat">
+          <div class="label"><span>Anime knowledge</span><span>85%</span></div>
+          <div class="bar"><span style="width:85%"></span></div>
+        </div>
+        <div class="stat">
+          <div class="label"><span>Sports energy</span><span>95%</span></div>
+          <div class="bar"><span style="width:95%"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vs">VS</div>
+
+    <div class="card ben">
+      <div class="avatar">😂</div>
+      <h2>Ben</h2>
+      <div class="role">Age 13 · The Funny One</div>
+      <p class="bio">Same games, same anime — but Ben's real skill is making everyone around him laugh, on purpose or by accident.</p>
+      <div class="tags">
+        <span class="tag">🕹️ Video Games</span>
+        <span class="tag">📺 Anime</span>
+        <span class="tag">🤣 Making People Laugh</span>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="label"><span>Gaming</span><span>88%</span></div>
+          <div class="bar"><span style="width:88%"></span></div>
+        </div>
+        <div class="stat">
+          <div class="label"><span>Anime knowledge</span><span>85%</span></div>
+          <div class="bar"><span style="width:85%"></span></div>
+        </div>
+        <div class="stat">
+          <div class="label"><span>Comedy timing</span><span>99%</span></div>
+          <div class="bar"><span style="width:99%"></span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  Made for <strong>Castiel</strong> &amp; <strong>Ben</strong> — gamers, anime fans, and (unofficial) rivals.
+</footer>
+
+</body>
+</html>
